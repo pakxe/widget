@@ -12,7 +12,13 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
   }
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+  
+  body {
+    font-family: 'Noto Sans KR', sans-serif;
+  }
 `;
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

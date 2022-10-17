@@ -1,27 +1,36 @@
 import styled from "styled-components";
-import { css } from "styled-components";
+import React, { useEffect, useState } from "react";
+import moment from "moment";
+import Flex from "./components/Flex/index";
+import { motion } from "framer-motion";
 
-const Input = styled.input.attrs((props) => ({
-  // 미리 props를 설정한다. Input 컴포넌트는 <input type='text' size='1em'>와 같아진다.
-  type: "text",
-  size: props.size || "1em",
-}))`
-  // css 스타일링
-  color: palevioletred;
-  font-size: 1em;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
+const Background = styled(Flex)`
+  background-color: #c8dcc9;
+  width: 100vw;
+  height: 100vh;
+`;
 
-  margin: ${(props) => props.size};
-  padding: ${(props) => props.size};
+const Typo = styled.div`
+  color: white;
+  font-size: ${(props) => props.size || "22px"}; // 단축 평가 표현식
 `;
 
 function App() {
+  const [days, setDays] = useState();
+
+  useEffect(() => {
+    // setInterval로 시계만드는 법을 잘 모르겠다.. 고쳐야할 듯
+    const now = moment(); // 현재 날짜와 시간 객체 생성
+    const christmas = moment("2022-12-25"); // 날짜 및 시간 지정 생성
+
+    setDays(christmas.diff(now, "days"));
+  }, []);
+
   return (
-    <>
-      <Input></Input>
-      <Input size="2em"></Input>
-    </>
+    <Background justify="center" align="center" direction="column">
+      <Typo style={{ marginBottom: "10px" }}>🎄♡◟(●•ᴗ•●)◞♡🎄</Typo>
+      <Typo size="18px">D - {days}</Typo>
+    </Background>
   );
 }
 
