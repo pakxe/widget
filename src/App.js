@@ -1,9 +1,9 @@
 import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import moment from "moment";
-import { motion } from "framer-motion";
+import Flex from "./components/Flex/index";
+import { motion, transform } from "framer-motion";
 
-// 뒤의 그라데이션 배경
 const Background = styled(motion.div)`
   display: flex;
   flex-direction: ${(props) => props.direction || "row"};
@@ -13,7 +13,6 @@ const Background = styled(motion.div)`
   height: 100vh;
 `;
 
-// 중앙에 하얀 박스
 const Box = styled(motion.div)`
   opacity: 0.9;
   width: 160px;
@@ -26,14 +25,11 @@ const Box = styled(motion.div)`
   justify-content: center;
   align-items: center;
 `;
-
-// 박스 안의 글자
 const Typo = styled.div`
   color: black;
-  font-size: ${(props) => props.size || "14px"};
+  font-size: ${(props) => props.size || "14px"}; // 단축 평가 표현식
 `;
 
-// 그라데이션 애니메이션 객체
 const Animation = {
   start: { background: "linear-gradient(45deg, #325565d6, #71d890d6)" },
   end: {
@@ -42,18 +38,15 @@ const Animation = {
     transition: { duration: 5, repeatType: "reverse", repeat: Infinity },
   },
 };
-
 function App() {
-  const [days, setDays] = useState(); // 디데이를 저장할 변수
+  const [days, setDays] = useState();
 
-  // 날짜 갱신을 위해..
   useEffect(() => {
-    const christmas = moment("2022-12-25");
-    const id = setInterval(() => {
-      const now = moment();
-      setTime(setDays(christmas.diff(now, "days")));
-    }, 1000);
-    return () => clearInterval(id);
+    // setInterval로 시계만드는 법을 잘 모르겠다.. 고쳐야할 듯
+    const now = moment(); // 현재 날짜와 시간 객체 생성
+    const christmas = moment("2022-12-25"); // 날짜 및 시간 지정 생성
+
+    setDays(christmas.diff(now, "days"));
   }, []);
 
   return (
@@ -80,3 +73,8 @@ function App() {
 }
 
 export default App;
+/*
+
+scale은 0.1 차이가 제일 적당함
+
+ */
