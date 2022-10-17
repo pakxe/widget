@@ -4,15 +4,30 @@ import moment from "moment";
 import Flex from "./components/Flex/index";
 import { motion } from "framer-motion";
 
-const Background = styled(Flex)`
-  background-color: #c8dcc9;
+const Background = styled(motion.div)`
+  background: linear-gradient(45deg, #325565, #71d890);
+  display: flex;
+  flex-direction: ${(props) => props.direction || "row"};
+  justify-content: ${(props) => props.justify || "initial"};
+  align-items: ${(props) => props.align || "initial"};
   width: 100vw;
   height: 100vh;
 `;
 
+const Box = styled(motion.div)`
+  width: 170px;
+  height: 90px;
+  border-radius: 6px;
+  background-color: white;
+  box-shadow: 0 3px 10px 8px rgba(0, 0, 0, 0.17);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
 const Typo = styled.div`
-  color: white;
-  font-size: ${(props) => props.size || "22px"}; // 단축 평가 표현식
+  color: black;
+  font-size: ${(props) => props.size || "14px"}; // 단축 평가 표현식
 `;
 
 function App() {
@@ -28,10 +43,22 @@ function App() {
 
   return (
     <Background justify="center" align="center" direction="column">
-      <Typo style={{ marginBottom: "10px" }}>🎄♡◟(●•ᴗ•●)◞♡🎄</Typo>
-      <Typo size="18px">D - {days}</Typo>
+      <Box
+        whileHover={{ scale: [null, 1.3, 1.2] }}
+        transition={{ duration: 0.3 }}
+      >
+        <Typo style={{ marginBottom: "13px" }}>🎄♡◟(●•ᴗ•●)◞♡🎄</Typo>
+        <Typo size="20px" style={{ fontWeight: "700" }}>
+          D - {days}
+        </Typo>
+      </Box>
     </Background>
   );
 }
 
 export default App;
+/*
+
+scale은 0.1 차이가 제일 적당함
+
+ */
