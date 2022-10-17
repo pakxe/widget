@@ -1,49 +1,62 @@
 import styled from "styled-components";
+import { css } from "styled-components";
 
-const Thing = styled.div`
-  color: blue;
+// Input, LabelText를 감쌀 Label
+const Label = styled.label`
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+`;
 
-  &:hover {
-    // <Thing>에 hover상태일 때
-    color: red;
-  }
-
-  & ~ & {
-    // 첫번째 출현하는 <Thing> 뒤에 있는 모든 <Thing>에게 적용. 첫번째 <Thing>은 적용되지 않음
-    background: tomato;
-  }
-
-  & + & {
-    // <Thing> 출현 후 바로 뒤따르는 B요소에게 적용
-    background: lime;
-  }
-
-  &.something {
-    // 클래스명이 'something'인 <Thing>에게 적용
-    background: orange;
-  }
-
-  .something-else & {
-    // 클래스명이 'something-else'인 임의의 컴포넌트 안에 있는 모든 <Thing>
-    border: 1px solid red;
-  }
+// checkbox인 input
+const Input = styled.input.attrs({ type: "checkbox" })``;
+const LabelText = styled.span`
+  // 아래처럼 앞부분에 작성하면 props를 많이 사용해야하는 코드에서 편리하다. props반복작성할 필요가 없으므로..
+  ${(props) => {
+    switch (props.$mode) {
+      case "dark": // props.$mode의 값이 'dark'인 경우
+        return css`
+          background-color: black;
+          color: white;
+          ${Input}: checked + && {
+            // 체크된 Input 컴포넌트 다음에 오는 <LabelText>에 적용
+            color: blue;
+          }
+        `;
+      default: // 그 외
+        return css`
+          background-color: white;
+          color: black;
+          ${Input}: checked + && {
+            color: red;
+          }
+        `;
+    }
+  }}
 `;
 
 function App() {
   return (
     <>
-      <Thing>normal</Thing>
-      <Thing>& + &</Thing>
-      <Thing className="something">
-        Im Thing, and my className='something'
-      </Thing>
-      <div>im div tag</div>
-      <Thing>& ~ &</Thing>
-      <div className="something-else">
-        <Thing>
-          Im Thing inside div tag, and the div className='something'
-        </Thing>
-      </div>
+      <Label>
+        <Input defaultChecked />
+        <LabelText>Foo</LabelText>
+      </Label>
+      <Label>
+        <Input />
+        <LabelText $mode="dark">Foo</LabelText>
+        <LabelText $mode="dark">Foo</LabelText>
+      </Label>
+      <Label>
+        <Input defaultChecked />
+        <LabelText $mode="dark">Foo</LabelText>
+        <LabelText $mode="dark">Foo</LabelText>
+      </Label>
+      <Label>
+        <Input defaultChecked />
+        <LabelText>Foo</LabelText>
+      </Label>
     </>
   );
 }
