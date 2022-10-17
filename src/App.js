@@ -2,10 +2,9 @@ import styled from "styled-components";
 import React, { useEffect, useState } from "react";
 import moment from "moment";
 import Flex from "./components/Flex/index";
-import { motion } from "framer-motion";
+import { motion, transform } from "framer-motion";
 
 const Background = styled(motion.div)`
-  background: linear-gradient(45deg, #325565, #71d890);
   display: flex;
   flex-direction: ${(props) => props.direction || "row"};
   justify-content: ${(props) => props.justify || "initial"};
@@ -15,8 +14,9 @@ const Background = styled(motion.div)`
 `;
 
 const Box = styled(motion.div)`
-  width: 170px;
-  height: 90px;
+  opacity: 0.9;
+  width: 160px;
+  height: 80px;
   border-radius: 6px;
   background-color: white;
   box-shadow: 0 3px 10px 8px rgba(0, 0, 0, 0.17);
@@ -30,6 +30,14 @@ const Typo = styled.div`
   font-size: ${(props) => props.size || "14px"}; // 단축 평가 표현식
 `;
 
+const Animation = {
+  start: { background: "linear-gradient(45deg, #325565d6, #71d890d6)" },
+  end: {
+    background:
+      "linear-gradient(45deg, rgb(215 78 78 / 50%), rgb(249 181 103 / 50%))",
+    transition: { duration: 5, repeatType: "reverse", repeat: Infinity },
+  },
+};
 function App() {
   const [days, setDays] = useState();
 
@@ -42,12 +50,20 @@ function App() {
   }, []);
 
   return (
-    <Background justify="center" align="center" direction="column">
+    <Background
+      justify="center"
+      align="center"
+      direction="column"
+      initial="start"
+      animate="end"
+      variants={Animation}
+    >
       <Box
         whileHover={{ scale: [null, 1.3, 1.2] }}
         transition={{ duration: 0.3 }}
+        whileTap={{ scale: 0.9 }}
       >
-        <Typo style={{ marginBottom: "13px" }}>🎄♡◟(●•ᴗ•●)◞♡🎄</Typo>
+        <Typo style={{ marginBottom: "10px" }}>🎄♡◟(●•ᴗ•●)◞♡🎄</Typo>
         <Typo size="20px" style={{ fontWeight: "700" }}>
           D - {days}
         </Typo>
