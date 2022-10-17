@@ -1,25 +1,21 @@
 import styled from "styled-components";
 
 const Button = styled.button`
-  // 함수를 CSS 속성에 전달해줬다. 삼항연산자로 어떤 색을 적용할지 선택한다.
-  background: white;
-  color: palevioletred;
-  border: 2px solid palevioletred;
-  border-radius: 3px;
+  // color props가 있다면 그 props의 값으로 배경색을 지정한다.
+  // 전달받은 props가 없다면 기본값인 palevioletred로 배경색을 지정한다.
+  background: ${(props) => props.color || "palevioletred"};
+  color: white;
+
+  border: 2px solid white;
   padding: 10px;
   margin: 10px;
-`;
-
-const TomatoButton = styled(Button)`
-  color: tomato;
-  border-color: tomato;
 `;
 
 function App() {
   return (
     <>
-      <Button>Normal Button</Button>
-      <TomatoButton>Tomato Button</TomatoButton>
+      <Button color="tomato">OFF</Button>
+      <Button>ON</Button>
     </>
   );
 }
