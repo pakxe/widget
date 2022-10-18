@@ -5,7 +5,8 @@
 
 # 내 첫 위젯.. 모습
 초라하지만 실제 모습은 아래와 같다. 
-https://user-images.githubusercontent.com/64801796/196392687-77828bfa-0706-46bd-b0c8-d4d19448bd44.mov
+
+![video](https://user-images.githubusercontent.com/64801796/196393222-7c60d75a-b148-44ad-a106-beff6c0ad7cc.mov)
 
 내 노션 메인페이지에서는 이런 모습으로 적용됐다.
 ![image](https://user-images.githubusercontent.com/64801796/196391902-2fd35a16-a90e-4823-9600-5c99f1477a55.png)
