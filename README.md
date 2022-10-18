@@ -6,7 +6,10 @@
 # 내 첫 위젯.. 모습
 초라하지만 실제 모습은 아래와 같다. 
 
-![video](https://user-images.githubusercontent.com/64801796/196393222-7c60d75a-b148-44ad-a106-beff6c0ad7cc.mov)
+![위젯 동작 움짤](https://user-images.githubusercontent.com/64801796/196393576-065ce1c4-775e-49e7-afe5-af8208aa7845.gif)
+
+(움짤이라 색 표현 범위가 좁으므로, 더 예쁘게 보고싶다면 아래 영상을 다운받아주세요)
+https://user-images.githubusercontent.com/64801796/196393222-7c60d75a-b148-44ad-a106-beff6c0ad7cc.mov
 
 내 노션 메인페이지에서는 이런 모습으로 적용됐다.
 ![image](https://user-images.githubusercontent.com/64801796/196391902-2fd35a16-a90e-4823-9600-5c99f1477a55.png)
