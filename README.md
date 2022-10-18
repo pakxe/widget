@@ -6,7 +6,7 @@
 # 내 첫 위젯.. 모습
 초라하지만 실제 모습은 아래와 같다. 
 
-![위젯 동작 움짤](https://user-images.githubusercontent.com/64801796/196393576-065ce1c4-775e-49e7-afe5-af8208aa7845.gif)
+![위젯 동작 움짤](https://user-images.githubusercontent.com/64801796/196394019-c7f8e0ea-a8d2-4ac0-b1c2-f2e6f37c858e.gif)
 
 (움짤이라 색 표현 범위가 좁으므로, 더 예쁘게 보고싶다면 아래 영상을 다운받아주세요)
 https://user-images.githubusercontent.com/64801796/196393222-7c60d75a-b148-44ad-a106-beff6c0ad7cc.mov
